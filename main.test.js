@@ -1,14 +1,17 @@
-import { isHappy } from './main.js';
+import { isIsomorphic } from './main.js';
 
-test('Is 2 a happy number?', () => {
-    expect(isHappy(2)).toBe(false);
+test('Check answer', () => {
+    expect(isIsomorphic('ass', 'egg')).toBe(true);
 });
-test('Is 19 a happy number?', () => {
-    expect(isHappy(19)).toBe(true);
+test('Check answer', () => {
+    expect(isIsomorphic('paper', 'title')).toBe(true);
 });
-test('Is 1934400033914900032 a happy number?', () => {
-    expect(isHappy(1934400033914900032)).toBe(true);
+test('Check answer', () => {
+    expect(isIsomorphic('foo', 'bar')).toBe(false);
 });
-test('Is 19000389098914900032 a happy number?', () => {
-    expect(isHappy(19000389098914900032)).toBe(false);
+test('Check answer', () => {
+    expect(isIsomorphic('badc', 'baba')).toBe(false);
+});
+test('Check answer', () => {
+    expect(isIsomorphic('abca', 'bavb')).toBe(true);
 });
