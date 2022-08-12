@@ -1,17 +1,20 @@
-import { isIsomorphic } from './main.js';
+import { longestCommonPrefix } from './main.js';
 
 test('Check answer', () => {
-    expect(isIsomorphic('ass', 'egg')).toBe(true);
+    expect(longestCommonPrefix(['a'])).toBe('a');
 });
 test('Check answer', () => {
-    expect(isIsomorphic('paper', 'title')).toBe(true);
+    expect(longestCommonPrefix(['aa', 'ab'])).toBe('a');
 });
 test('Check answer', () => {
-    expect(isIsomorphic('foo', 'bar')).toBe(false);
+    expect(longestCommonPrefix(['cir', 'car'])).toBe('c');
 });
 test('Check answer', () => {
-    expect(isIsomorphic('badc', 'baba')).toBe(false);
+    expect(longestCommonPrefix(['nobody', 'nobodyknow'])).toBe('nobody');
 });
 test('Check answer', () => {
-    expect(isIsomorphic('abca', 'bavb')).toBe(true);
+    expect(longestCommonPrefix(['howie', 'ehowie'])).toBe('');
+});
+test('Check answer', () => {
+    expect(longestCommonPrefix(['reflower', 'flow', 'flight'])).toBe('');
 });
