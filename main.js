@@ -21,17 +21,7 @@
  * @return {number[]}
  */
 
-export const twoSum = function (nums, target) {
-    const table = {};
-    for (let i = 0; i < nums.length; i++) {
-        const less = target - nums[i];
-        if (table[less] !== undefined) {
-            return [table[less], i];
-        } else {
-            table[nums[i]] = i;
-        }
-    }
-};
+export const twoSum = function (nums, target) {};
 
 /**
  * Best Time to Buy and Sell Stock
@@ -58,12 +48,4 @@ export const twoSum = function (nums, target) {
  * @return {number}
  */
 
-export const maxProfit = function (prices) {
-    let compare = 0;
-    let min = prices[0];
-    for (let i = 1; i < prices.length; i++) {
-        if (prices[i] < min) min = prices[i];
-        if (prices[i] - min > compare) compare = prices[i] - min;
-    }
-    return compare;
-};
+export const maxProfit = function (prices) {};
