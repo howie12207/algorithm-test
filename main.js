@@ -17,4 +17,19 @@
  * @return {number}
  */
 
-export const longestPalindrome = function (s) {};
+export const longestPalindrome = function (str) {
+    const record = {};
+    let len = 0;
+    for (let i = 0; i < str.length; i++) {
+        if (!record[str[i]]) {
+            record[str[i]] = 1;
+        } else {
+            record[str[i]] = 0;
+            len += 2;
+        }
+    }
+    if (str.length > len) {
+        len++;
+    }
+    return len;
+};
