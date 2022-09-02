@@ -1,18 +1,52 @@
-import { longestPalindrome } from './main.js';
+import { floodFill } from './main.js';
 
 test('T1 - Check answer', () => {
-    expect(longestPalindrome('abccccdd')).toBe(7);
-});
-test('T1 - Check answer', () => {
-    expect(longestPalindrome('a')).toBe(1);
-});
-test('T1 - Check answer', () => {
-    expect(longestPalindrome('abbcc')).toBe(5);
+    expect(
+        floodFill(
+            [
+                [0, 0, 0],
+                [0, 1, 0]
+            ],
+            1,
+            1,
+            2
+        )
+    ).toEqual([
+        [0, 0, 0],
+        [0, 2, 0]
+    ]);
 });
 test('T1 - Check answer', () => {
     expect(
-        longestPalindrome(
-            'cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccbcccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccbcccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccbcccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccb'
+        floodFill(
+            [
+                [0, 0, 0],
+                [0, 0, 0]
+            ],
+            0,
+            0,
+            0
         )
-    ).toBe(1896);
+    ).toEqual([
+        [0, 0, 0],
+        [0, 0, 0]
+    ]);
+});
+test('T1 - Check answer', () => {
+    expect(
+        floodFill(
+            [
+                [1, 1, 1],
+                [1, 1, 0],
+                [1, 0, 1]
+            ],
+            1,
+            1,
+            2
+        )
+    ).toEqual([
+        [2, 2, 2],
+        [2, 2, 0],
+        [2, 0, 1]
+    ]);
 });
