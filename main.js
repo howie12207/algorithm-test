@@ -25,4 +25,58 @@
  * @return {number[][]}
  */
 
-export const floodFill = function (image, sr, sc, color) {};
+export const floodFill = function (image, sr, sc, color) {
+    const list = {};
+
+    // 將位置/值 塞入表單
+    image.forEach((item, index) => {
+        item.forEach((value, key) => {
+            list[`${index}.${key}`] = value;
+        });
+    });
+
+    // 找出與起始點相同值的位置
+    const needValue = list[`${sr}.${sc}`];
+    const filterList = [];
+    Object.entries(list).forEach(([key, value]) => {
+        if (value === needValue) filterList.push(key);
+    });
+
+    // 判斷是否臨近
+    const x = sr;
+    const y = sc;
+    const checkList = [`${x - 1}.${y}`, `${x + 1}.${y}`, `${x}.${y - 1}`, `${x}.${y + 1}`];
+    const resultList = [`${sr}.${sc}`];
+    const checkIsNear = () => {
+        const temp = filterList.find(
+            item => checkList.includes(item) && !resultList.includes(item)
+        );
+        if (temp) {
+            resultList.push(temp);
+            checkIsNear();
+        }
+    };
+    checkIsNear();
+
+    // 替換
+    let array = [...image];
+    resultList.forEach(item => {
+        const [x, y] = item.split('.');
+        array[y][x] = color;
+    });
+
+    return array;
+};
+
+console.log(
+    floodFill(
+        [
+            [1, 1, 1],
+            [1, 1, 0],
+            [1, 0, 1]
+        ],
+        1,
+        1,
+        2
+    )
+);
